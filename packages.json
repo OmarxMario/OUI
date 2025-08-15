@@ -1,0 +1,8 @@
+{
+  "name": "Oui",
+  "version": "beta",
+  "description": "Ui by css",
+  "main": "ui.css",
+  "author": "Omar Potato",
+  "license": "ISC"
+}

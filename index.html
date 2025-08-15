@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="shortcut icon" href="ico.png" type="image/x-icon">
+  <title>OUI Docs</title>
+  <style>
+    /* ========= Demo-only styles for the documentation page ========= */
+    :root{
+      --bg: #0f1220;
+      --panel: #171a2b;
+      --ink: #e9ecff;
+      --muted: #9aa2c7;
+      --accent: #7c8cff;
+      --ok: #47d18c;
+      --warn: #ffbe55;
+
+      /* Your library variables (users can override) */
+      --trans-black: rgba(0,0,0,.2);
+      --text-color: #e9ecff;
+      --element-bg: #20243a;
+      --border-col: #3a3f64;
+      --none: transparent;
+    }
+    html,body{height:100%}
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color:var(--ink); background:linear-gradient(180deg, #0d1020, #10142a);
+    }
+    .page{max-width:1080px; margin:0 auto; padding:32px 20px;}
+    .doc-card{background:var(--panel); border:1px solid #242a48; border-radius:16px; padding:20px; box-shadow: rgba(0,0,0,.25) 0 10px 30px;}
+    h1{font-size:clamp(28px,4vw,40px); margin:0 0 12px}
+    h2{margin:32px 0 12px}
+    h3{margin:26px 0 10px}
+    small,code,kbd{background:#111429; color:#c8d0ff; padding:.1em .35em; border-radius:6px}
+    pre{background:#0b0f24; border:1px solid #1a2146; border-radius:12px; padding:16px; overflow:auto}
+    .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:16px}
+    .pill{display:inline-block; padding:.25rem .6rem; border:1px solid #2c3158; border-radius:999px; color:#b6bdf0}
+    .demo-box{background:#151936; border:1px dashed #2a3160; color:#cbd3ff; border-radius:10px; padding:8px 10px;}
+    .chip{background:#1b2042; padding:.25rem .5rem; border-radius:6px; border:1px solid #2a3160}
+    .muted{color:var(--muted)}
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .divider{height:1px; background:#20264d; margin:24px 0}
+  </style>
+
+  <!-- ================= YOUR LIBRARY (copy-paste from your CSS) ================= -->
+  <style id="your-library">
+    .p-l-1{padding-left:1px;}.p-l-2{padding-left:2px;}.p-l-3{padding-left:3px;}.p-l-4{padding-left:4px;}.p-l-5{padding-left:5px;}.p-l-6{padding-left:6px;}.p-l-7{padding-left:7px;}.p-l-8{padding-left:8px;}.p-l-9{padding-left:9px;}.p-l-10{padding-left:10px;}.p-l-11{padding-left:11px;}.p-l-12{padding-left:12px;}.p-l-13{padding-left:13px;}.p-l-14{padding-left:14px;}.p-l-15{padding-left:15px;}.p-l-16{padding-left:16px;}.p-l-17{padding-left:17px;}.p-l-18{padding-left:18px;}.p-l-19{padding-left:19px;}.p-l-20{padding-left:20px;}.p-l-21{padding-left:21px;}.p-l-22{padding-left:22px;}.p-l-23{padding-left:23px;}.p-l-24{padding-left:24px;}.p-l-25{padding-left:25px;}.p-l-26{padding-left:26px;}.p-l-27{padding-left:27px;}.p-l-28{padding-left:28px;}.p-l-29{padding-left:29px;}.p-l-30{padding-left:30px;}.p-l-31{padding-left:31px;}.p-l-32{padding-left:32px;}.p-l-33{padding-left:33px;}.p-l-34{padding-left:34px;}.p-l-35{padding-left:35px;}.p-l-36{padding-left:36px;}.p-l-37{padding-left:37px;}.p-l-38{padding-left:38px;}.p-l-39{padding-left:39px;}.p-l-40{padding-left:40px;}.p-l-41{padding-left:41px;}.p-l-42{padding-left:42px;}.p-l-43{padding-left:43px;}.p-l-44{padding-left:44px;}.p-l-45{padding-left:45px;}.p-l-46{padding-left:46px;}.p-l-47{padding-left:47px;}.p-l-48{padding-left:48px;}.p-l-49{padding-left:49px;}.p-l-50{padding-left:50px;}.p-l-51{padding-left:51px;}.p-l-52{padding-left:52px;}.p-l-53{padding-left:53px;}.p-l-54{padding-left:54px;}.p-l-55{padding-left:55px;}.p-l-56{padding-left:56px;}.p-l-57{padding-left:57px;}.p-l-58{padding-left:58px;}.p-l-59{padding-left:59px;}.p-l-60{padding-left:60px;}.p-l-61{padding-left:61px;}.p-l-62{padding-left:62px;}.p-l-63{padding-left:63px;}.p-l-64{padding-left:64px;}.p-l-65{padding-left:65px;}.p-l-66{padding-left:66px;}.p-l-67{padding-left:67px;}.p-l-68{padding-left:68px;}.p-l-69{padding-left:69px;}.p-l-70{padding-left:70px;}.p-l-71{padding-left:71px;}.p-l-72{padding-left:72px;}.p-l-73{padding-left:73px;}.p-l-74{padding-left:74px;}.p-l-75{padding-left:75px;}.p-l-76{padding-left:76px;}.p-l-77{padding-left:77px;}.p-l-78{padding-left:78px;}.p-l-79{padding-left:79px;}.p-l-80{padding-left:80px;}.p-l-81{padding-left:81px;}.p-l-82{padding-left:82px;}.p-l-83{padding-left:83px;}.p-l-84{padding-left:84px;}.p-l-85{padding-left:85px;}.p-l-86{padding-left:86px;}.p-l-87{padding-left:87px;}.p-l-88{padding-left:88px;}.p-l-89{padding-left:89px;}.p-l-90{padding-left:90px;}.p-l-91{padding-left:91px;}.p-l-92{padding-left:92px;}.p-l-93{padding-left:93px;}.p-l-94{padding-left:94px;}.p-l-95{padding-left:95px;}.p-l-96{padding-left:96px;}.p-l-97{padding-left:97px;}.p-l-98{padding-left:98px;}.p-l-99{padding-left:99px;}.p-l-100{padding-left:100px;}
+
+    .p-r-1{padding-right:1px;}.p-r-2{padding-right:2px;}.p-r-3{padding-right:3px;}.p-r-4{padding-right:4px;}.p-r-5{padding-right:5px;}.p-r-6{padding-right:6px;}.p-r-7{padding-right:7px;}.p-r-8{padding-right:8px;}.p-r-9{padding-right:9px;}.p-r-10{padding-right:10px;}.p-r-11{padding-right:11px;}.p-r-12{padding-right:12px;}.p-r-13{padding-right:13px;}.p-r-14{padding-right:14px;}.p-r-15{padding-right:15px;}.p-r-16{padding-right:16px;}.p-r-17{padding-right:17px;}.p-r-18{padding-right:18px;}.p-r-19{padding-right:19px;}.p-r-20{padding-right:20px;}.p-r-21{padding-right:21px;}.p-r-22{padding-right:22px;}.p-r-23{padding-right:23px;}.p-r-24{padding-right:24px;}.p-r-25{padding-right:25px;}.p-r-26{padding-right:26px;}.p-r-27{padding-right:27px;}.p-r-28{padding-right:28px;}.p-r-29{padding-right:29px;}.p-r-30{padding-right:30px;}.p-r-31{padding-right:31px;}.p-r-32{padding-right:32px;}.p-r-33{padding-right:33px;}.p-r-34{padding-right:34px;}.p-r-35{padding-right:35px;}.p-r-36{padding-right:36px;}.p-r-37{padding-right:37px;}.p-r-38{padding-right:38px;}.p-r-39{padding-right:39px;}.p-r-40{padding-right:40px;}.p-r-41{padding-right:41px;}.p-r-42{padding-right:42px;}.p-r-43{padding-right:43px;}.p-r-44{padding-right:44px;}.p-r-45{padding-right:45px;}.p-r-46{padding-right:46px;}.p-r-47{padding-right:47px;}.p-r-48{padding-right:48px;}.p-r-49{padding-right:49px;}.p-r-50{padding-right:50px;}.p-r-51{padding-right:51px;}.p-r-52{padding-right:52px;}.p-r-53{padding-right:53px;}.p-r-54{padding-right:54px;}.p-r-55{padding-right:55px;}.p-r-56{padding-right:56px;}.p-r-57{padding-right:57px;}.p-r-58{padding-right:58px;}.p-r-59{padding-right:59px;}.p-r-60{padding-right:60px;}.p-r-61{padding-right:61px;}.p-r-62{padding-right:62px;}.p-r-63{padding-right:63px;}.p-r-64{padding-right:64px;}.p-r-65{padding-right:65px;}.p-r-66{padding-right:66px;}.p-r-67{padding-right:67px;}.p-r-68{padding-right:68px;}.p-r-69{padding-right:69px;}.p-r-70{padding-right:70px;}.p-r-71{padding-right:71px;}.p-r-72{padding-right:72px;}.p-r-73{padding-right:73px;}.p-r-74{padding-right:74px;}.p-r-75{padding-right:75px;}.p-r-76{padding-right:76px;}.p-r-77{padding-right:77px;}.p-r-78{padding-right:78px;}.p-r-79{padding-right:79px;}.p-r-80{padding-right:80px;}.p-r-81{padding-right:81px;}.p-r-82{padding-right:82px;}.p-r-83{padding-right:83px;}.p-r-84{padding-right:84px;}.p-r-85{padding-right:85px;}.p-r-86{padding-right:86px;}.p-r-87{padding-right:87px;}.p-r-88{padding-right:88px;}.p-r-89{padding-right:89px;}.p-r-90{padding-right:90px;}.p-r-91{padding-right:91px;}.p-r-92{padding-right:92px;}.p-r-93{padding-right:93px;}.p-r-94{padding-right:94px;}.p-r-95{padding-right:95px;}.p-r-96{padding-right:96px;}.p-r-97{padding-right:97px;}.p-r-98{padding-right:98px;}.p-r-99{padding-right:99px;}.p-r-100{padding-right:100px;}
+
+    .p-b-1{padding-bottom:1px;}.p-b-2{padding-bottom:2px;}.p-b-3{padding-bottom:3px;}.p-b-4{padding-bottom:4px;}.p-b-5{padding-bottom:5px;}.p-b-6{padding-bottom:6px;}.p-b-7{padding-bottom:7px;}.p-b-8{padding-bottom:8px;}.p-b-9{padding-bottom:9px;}.p-b-10{padding-bottom:10px;}.p-b-11{padding-bottom:11px;}.p-b-12{padding-bottom:12px;}.p-b-13{padding-bottom:13px;}.p-b-14{padding-bottom:14px;}.p-b-15{padding-bottom:15px;}.p-b-16{padding-bottom:16px;}.p-b-17{padding-bottom:17px;}.p-b-18{padding-bottom:18px;}.p-b-19{padding-bottom:19px;}.p-b-20{padding-bottom:20px;}.p-b-21{padding-bottom:21px;}.p-b-22{padding-bottom:22px;}.p-b-23{padding-bottom:23px;}.p-b-24{padding-bottom:24px;}.p-b-25{padding-bottom:25px;}.p-b-26{padding-bottom:26px;}.p-b-27{padding-bottom:27px;}.p-b-28{padding-bottom:28px;}.p-b-29{padding-bottom:29px;}.p-b-30{padding-bottom:30px;}.p-b-31{padding-bottom:31px;}.p-b-32{padding-bottom:32px;}.p-b-33{padding-bottom:33px;}.p-b-34{padding-bottom:34px;}.p-b-35{padding-bottom:35px;}.p-b-36{padding-bottom:36px;}.p-b-37{padding-bottom:37px;}.p-b-38{padding-bottom:38px;}.p-b-39{padding-bottom:39px;}.p-b-40{padding-bottom:40px;}.p-b-41{padding-bottom:41px;}.p-b-42{padding-bottom:42px;}.p-b-43{padding-bottom:43px;}.p-b-44{padding-bottom:44px;}.p-b-45{padding-bottom:45px;}.p-b-46{padding-bottom:46px;}.p-b-47{padding-bottom:47px;}.p-b-48{padding-bottom:48px;}.p-b-49{padding-bottom:49px;}.p-b-50{padding-bottom:50px;}.p-b-51{padding-bottom:51px;}.p-b-52{padding-bottom:52px;}.p-b-53{padding-bottom:53px;}.p-b-54{padding-bottom:54px;}.p-b-55{padding-bottom:55px;}.p-b-56{padding-bottom:56px;}.p-b-57{padding-bottom:57px;}.p-b-58{padding-bottom:58px;}.p-b-59{padding-bottom:59px;}.p-b-60{padding-bottom:60px;}.p-b-61{padding-bottom:61px;}.p-b-62{padding-bottom:62px;}.p-b-63{padding-bottom:63px;}.p-b-64{padding-bottom:64px;}.p-b-65{padding-bottom:65px;}.p-b-66{padding-bottom:66px;}.p-b-67{padding-bottom:67px;}.p-b-68{padding-bottom:68px;}.p-b-69{padding-bottom:69px;}.p-b-70{padding-bottom:70px;}.p-b-71{padding-bottom:71px;}.p-b-72{padding-bottom:72px;}.p-b-73{padding-bottom:73px;}.p-b-74{padding-bottom:74px;}.p-b-75{padding-bottom:75px;}.p-b-76{padding-bottom:76px;}.p-b-77{padding-bottom:77px;}.p-b-78{padding-bottom:78px;}.p-b-79{padding-bottom:79px;}.p-b-80{padding-bottom:80px;}.p-b-81{padding-bottom:81px;}.p-b-82{padding-bottom:82px;}.p-b-83{padding-bottom:83px;}.p-b-84{padding-bottom:84px;}.p-b-85{padding-bottom:85px;}.p-b-86{padding-bottom:86px;}.p-b-87{padding-bottom:87px;}.p-b-88{padding-bottom:88px;}.p-b-89{padding-bottom:89px;}.p-b-90{padding-bottom:90px;}.p-b-91{padding-bottom:91px;}.p-b-92{padding-bottom:92px;}.p-b-93{padding-bottom:93px;}.p-b-94{padding-bottom:94px;}.p-b-95{padding-bottom:95px;}.p-b-96{padding-bottom:96px;}.p-b-97{padding-bottom:97px;}.p-b-98{padding-bottom:98px;}.p-b-99{padding-bottom:99px;}.p-b-100{padding-bottom:100px;}
+
+    .g-1{gap:1px;}.g-2{gap:2px;}.g-3{gap:3px;}.g-4{gap:4px;}.g-5{gap:5px;}.g-6{gap:6px;}.g-7{gap:7px;}.g-8{gap:8px;}.g-9{gap:9px;}.g-10{gap:10px;}.g-11{gap:11px;}.g-12{gap:12px;}.g-13{gap:13px;}.g-14{gap:14px;}.g-15{gap:15px;}.g-16{gap:16px;}.g-17{gap:17px;}.g-18{gap:18px;}.g-19{gap:19px;}.g-20{gap:20px;}.g-21{gap:21px;}.g-22{gap:22px;}.g-23{gap:23px;}.g-24{gap:24px;}.g-25{gap:25px;}.g-26{gap:26px;}.g-27{gap:27px;}.g-28{gap:28px;}.g-29{gap:29px;}.g-30{gap:30px;}.g-31{gap:31px;}.g-32{gap:32px;}.g-33{gap:33px;}.g-34{gap:34px;}.g-35{gap:35px;}.g-36{gap:36px;}.g-37{gap:37px;}.g-38{gap:38px;}.g-39{gap:39px;}.g-40{gap:40px;}.g-41{gap:41px;}.g-42{gap:42px;}.g-43{gap:43px;}.g-44{gap:44px;}.g-45{gap:45px;}.g-46{gap:46px;}.g-47{gap:47px;}.g-48{gap:48px;}.g-49{gap:49px;}.g-50{gap:50px;}
+
+    /* Layout */
+    .r{display: flex;flex-direction: row;flex-wrap: wrap;gap: 10px;}
+    .r-r{display: flex;flex-direction: row-reverse;flex-wrap: wrap;gap: 10px;}
+    .c{display: flex;flex-direction: column;flex-wrap: wrap;gap: 10px;}
+    .c-r{display: flex;flex-direction: column-reverse;flex-wrap: wrap;gap: 10px;}
+    .jus-ce{justify-content: center;}
+    .jst-sb{justify-content: space-between;}
+    .jst-sa{justify-content: space-around;}
+    .jst-ev{justify-content: space-evenly;}
+    .jus-st{justify-content: start;}
+    .just-ed{justify-content: end;}
+    .ali-ce{align-items: center;}
+    .ali-st{align-items: start;}
+    .ali-ed{align-items: end;}
+
+    /* Components */
+    .card{ padding: 10px 5px; border-radius: 20px; margin-inline: 20px; display:flex; flex-direction:column; flex-wrap:wrap; justify-content:center; align-items:center; box-shadow: var(--trans-black) 8px 8px 8px; }
+    .def{ color: var(--text-color); background: var(--element-bg); }
+    button{ border: none; outline: none; }
+    .n-b{ border: none; }
+    .bor{ border: 2px solid var(--border-col); }
+    .trans{ background: var(--none); }
+    .btn{ padding: 5px 12px; margin: 15px; border-radius: 5px; }
+    .ico-btn{ background: var(--none); }
+    .cont{ padding: 20px 10px; border-radius: 32px 32px 0 0; overflow:auto; }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="doc-card">
+      <h1>📚 OUI CSS Library — Beginner Documentation</h1>
+      <p>This guide teaches you how to use every class in OUI library using simple examples. Copy the snippets, paste them in your HTML, and you’re good.</p>
+      <div class="grid" style="margin-top:12px">
+        <div class="demo-box">⚡ <strong>Fast</strong> — drop-in classes, no build step.</div>
+        <div class="demo-box">🧩 <strong>Composable</strong> — combine classes for layouts & components.</div>
+        <div class="demo-box">🎨 <strong>Themable</strong> — customize with CSS variables.</div>
+      </div>
+    </header>
+
+    <section>
+      <h2>1) Install / Include</h2>
+      <p>Add the CSS file to your page. You can inline it or link to it.</p>
+      <pre><code>&lt;!-- Option A: Link to your css file --&gt;
+&lt;link rel="stylesheet" href="/css/your-library.css" /&gt;
+
+&lt;!-- Option B: Inline in &lt;style&gt; (used in this doc) --&gt;
+&lt;style&gt;
+  /* paste the library here */
+&lt;/style&gt;</code></pre>
+      <p class="muted">Tip: put it after your resets but before your app styles.</p>
+    </section>
+
+    <section>
+      <h2>2) Theme Variables (Optional but recommended)</h2>
+      <p>Your components read a few CSS custom properties. Override them once to match your brand.</p>
+      <pre><code>:root{
+  --trans-black: rgba(0,0,0,.18);
+  --text-color: #0f172a;        /* text on components */
+  --element-bg: #ffffff;        /* surface color for .def, .card */
+  --border-col: #d0d5dd;        /* borders for .bor */
+  --none: transparent;          /* used by .trans and .ico-btn */
+}</code></pre>
+    </section>
+
+    <div class="divider"></div>
+
+    <section>
+      <h2>3) Spacing Utilities</h2>
+      <p>Padding utilities add space inside an element. Numbers are in <em>pixels</em>. Example: <code>p-l-16</code> = <code>padding-left:16px</code>.</p>
+
+      <h3>• Left Padding — <code>p-l-[1..100]</code></h3>
+      <pre><code>&lt;div class="p-l-16 demo-box"&gt;This box has 16px left padding&lt;/div&gt;
+&lt;div class="p-l-40 demo-box"&gt;This box has 40px left padding&lt;/div&gt;</code></pre>
+
+      <h3>• Right Padding — <code>p-r-[1..100]</code></h3>
+      <pre><code>&lt;div class="p-r-20 demo-box"&gt;This text moves away from the right edge by 20px&lt;/div&gt;</code></pre>
+
+      <h3>• Bottom Padding — <code>p-b-[1..100]</code></h3>
+      <pre><code>&lt;button class="btn p-b-12 bor"&gt;Extra bottom padding (12px)&lt;/button&gt;</code></pre>
+
+      <p class="muted">Beginner tip: If you need top padding, wrap with a container and use <code>p-b-*</code> on a child, or add a top utility in your CSS similar to the others (pattern is the same).</p>
+    </section>
+
+    <section>
+      <h2>4) Gap Utilities for Flex Layouts — <code>g-[1..50]</code></h2>
+      <p><code>gap</code> adds space <em>between</em> flex items. Use it on any <span class="pill">.r</span>, <span class="pill">.r-r</span>, <span class="pill">.c</span>, or <span class="pill">.c-r</span> container.</p>
+      <pre><code>&lt;div class="r g-20"&gt;
+  &lt;div class="demo-box"&gt;Item A&lt;/div&gt;
+  &lt;div class="demo-box"&gt;Item B&lt;/div&gt;
+  &lt;div class="demo-box"&gt;Item C&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <section>
+      <h2>5) Flexbox Layout Helpers</h2>
+      <div class="grid">
+        <div class="doc-card">
+          <h3>Direction</h3>
+          <ul>
+            <li><code>.r</code> — row (left → right)</li>
+            <li><code>.r-r</code> — row-reverse (right → left)</li>
+            <li><code>.c</code> — column (top → bottom)</li>
+            <li><code>.c-r</code> — column-reverse (bottom → top)</li>
+          </ul>
+          <pre><code>&lt;div class="r g-10"&gt;
+  &lt;div class="demo-box"&gt;1&lt;/div&gt;
+  &lt;div class="demo-box"&gt;2&lt;/div&gt;
+  &lt;div class="demo-box"&gt;3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <div class="doc-card">
+          <h3>Horizontal distribution (justify-content)</h3>
+          <ul>
+            <li><code>.jus-st</code> — start</li>
+            <li><code>.jus-ce</code> — center</li>
+            <li><code>.just-ed</code> — end</li>
+            <li><code>.jst-sb</code> — space-between</li>
+            <li><code>.jst-sa</code> — space-around</li>
+            <li><code>.jst-ev</code> — space-evenly</li>
+          </ul>
+          <pre><code>&lt;div class="r jst-sb"&gt;
+  &lt;div class="demo-box"&gt;Left&lt;/div&gt;
+  &lt;div class="demo-box"&gt;Right&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <div class="doc-card">
+          <h3>Vertical alignment (align-items)</h3>
+          <ul>
+            <li><code>.ali-st</code> — align start</li>
+            <li><code>.ali-ce</code> — align center</li>
+            <li><code>.ali-ed</code> — align end</li>
+          </ul>
+          <pre><code>&lt;div class="r ali-ce" style="height:80px; background:#0b0f24; border:1px solid #1a2146; border-radius:12px;"&gt;
+  &lt;div class="demo-box"&gt;Centered vertically&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>6) Components</h2>
+
+      <h3>• Card — <code>.card</code> (+ <code>.def</code> skin)</h3>
+      <p>A simple content container with padding, rounded corners, and a soft shadow. Use <code>.def</code> to apply the default theme colors.</p>
+      <pre><code>&lt;article class="card def"&gt;
+  &lt;h4 style="margin:6px 0"&gt;Card title&lt;/h4&gt;
+  &lt;p class="muted"&gt;Cards are great for grouping content.&lt;/p&gt;
+&lt;/article&gt;</code></pre>
+
+      <h3>• Buttons — <code>button</code>, <code>.btn</code>, <code>.ico-btn</code>, <code>.n-b</code>, <code>.bor</code>, <code>.trans</code></h3>
+      <ul>
+        <li><code>button</code> base resets border/outline.</li>
+        <li><code>.btn</code> adds padding + radius.</li>
+        <li><code>.ico-btn</code> makes a minimal icon-style button.</li>
+        <li><code>.n-b</code> removes borders; <code>.bor</code> adds a themed border.</li>
+        <li><code>.trans</code> forces transparent background.</li>
+      </ul>
+      <pre><code>&lt;button class="btn def bor"&gt;Primary&lt;/button&gt;
+&lt;button class="btn trans bor"&gt;Ghost&lt;/button&gt;
+&lt;button class="ico-btn bor" aria-label="Settings"&gt;⚙️&lt;/button&gt;</code></pre>
+
+      <h3>• Container — <code>.cont</code></h3>
+      <p>Rounded top corners and scrollable content. Good for panels or drawers.</p>
+      <pre><code>&lt;section class="cont def" style="max-height:130px"&gt;
+  &lt;p&gt;Scrollable content here…&lt;/p&gt;
+  &lt;p&gt;Add more paragraphs to see the overflow auto.&lt;/p&gt;
+  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p&gt;
+  &lt;p&gt;Vivamus luctus, massa sed fringilla blandit, dui elit mattis lectus…&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+    </section>
+
+    <section>
+      <h2>7) Compose Utilities Together</h2>
+      <pre><code>&lt;div class="r g-16 ali-ce"&gt;
+  &lt;article class="card def p-l-20 p-r-20 p-b-16"&gt;
+    &lt;h4 style="margin:6px 0"&gt;Profile&lt;/h4&gt;
+    &lt;p class="muted"&gt;Combine spacing + layout + components easily.&lt;/p&gt;
+    &lt;div class="r g-10"&gt;
+      &lt;button class="btn def bor"&gt;Follow&lt;/button&gt;
+      &lt;button class="btn trans bor"&gt;Message&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/article&gt;
+
+  &lt;article class="card def p-l-16 p-r-16 p-b-12"&gt;
+    &lt;h4 style="margin:6px 0"&gt;Stats&lt;/h4&gt;
+    &lt;div class="r jst-ev g-10"&gt;
+      &lt;span class="chip"&gt;Posts 120&lt;/span&gt;
+      &lt;span class="chip"&gt;Likes 4.2k&lt;/span&gt;
+      &lt;span class="chip"&gt;Friends 345&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/article&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <section>
+      <h2>8) Quick Reference (Cheat Sheet)</h2>
+      <div class="grid">
+        <div class="doc-card">
+          <h3>Spacing</h3>
+          <p><code>p-l-[1..100]</code>, <code>p-r-[1..100]</code>, <code>p-b-[1..100]</code></p>
+          <p class="muted">All numbers are pixels.</p>
+        </div>
+        <div class="doc-card">
+          <h3>Gap</h3>
+          <p><code>g-[1..50]</code> — use on flex containers.</p>
+        </div>
+        <div class="doc-card">
+          <h3>Layout</h3>
+          <p><code>.r</code>, <code>.r-r</code>, <code>.c</code>, <code>.c-r</code></p>
+          <p><code>.jus-st</code>, <code>.jus-ce</code>, <code>.just-ed</code>, <code>.jst-sb</code>, <code>.jst-sa</code>, <code>.jst-ev</code></p>
+          <p><code>.ali-st</code>, <code>.ali-ce</code>, <code>.ali-ed</code></p>
+        </div>
+        <div class="doc-card">
+          <h3>Components</h3>
+          <p><code>.card</code>, <code>.def</code>, <code>.btn</code>, <code>.ico-btn</code>, <code>.cont</code></p>
+          <p>Helpers: <code>.bor</code>, <code>.n-b</code>, <code>.trans</code></p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>9) Common Mistakes & Tips</h2>
+      <ul>
+        <li><strong>Spacing doesn’t work?</strong> Check that you used the right side: <code>p-l-</code> for left, <code>p-r-</code> for right, <code>p-b-</code> for bottom.</li>
+        <li><strong>Gap not working?</strong> Make sure the parent has a flex class like <code>.r</code> or <code>.c</code>.</li>
+        <li><strong>Colors look off?</strong> Override the CSS variables in <code>:root</code> to match your theme.</li>
+        <li><strong>Need top padding?</strong> Add a <code>p-t-*</code> utility following your pattern, or wrap children and use <code>p-b-*</code> strategically.</li>
+        <li><strong>Icon-only buttons:</strong> use <code>.ico-btn</code> + <code>.bor</code> for a minimal affordance and set <code>aria-label</code>.</li>
+      </ul>
+    </section>
+
+    <footer class="doc-card" style="margin-top:24px">
+      <p>Made with ❤️ using your utility classes. You can copy this file as a starting point for your official docs site.</p>
+    </footer>
+  </div>
+</body>
+</html>
